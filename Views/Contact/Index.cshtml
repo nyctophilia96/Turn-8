@@ -1,0 +1,54 @@
+﻿@using Turn8.Models.Classes
+@model List<Address>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="contact">
+	<div class="wrap">
+		<div class="contact-top">
+			<h3>Contact Us</h3>
+			<p>Please send us your opinions about our website by filling out the form below. Thank you.</p>
+		</div>
+		<form class="cmxform" id="contactForm" method="post">
+			<div class="form">
+				<div>
+					<input required type="text" name="Name" class="textbox" placeholder="Name:">
+				</div>
+				<div>
+					<input required type="text" name="Mail" class="textbox" placeholder="Email:">
+				</div>
+				<div>
+					<input required type="text" name="Phone" class="textbox" placeholder="Phone:">
+				</div>
+
+				<div>
+					<input class="read" type="submit" value="SEND" />
+				</div>
+			</div>
+			<div class="form1">
+				<textarea required placeholder="Message:" name="Message"></textarea>
+			</div>
+		</form>
+		<div class="clear"></div>
+		<div class="contact-bottom">
+			<div class="contact-left">
+				@foreach(var x in Model)
+				{
+					<div class="contact-add">
+						<h3>@x.Title</h3>
+						<p>@x.Description</p>
+						<p>@x.AddressOne</p>
+						<p>Telephone: @x.Phone</p>
+						<p>Email: @x.Mail</p>
+					</div>
+				}
+			</div>
+			<div class="contact-map" style="margin-bottom:20px">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3013.3224664808163!2d29.40299517724096!3d40.952514122855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cad625f8bd7d11%3A0xc682e9c08e5986aa!2s%C4%B0stanbul%20Park!5e0!3m2!1str!2str!4v1729371541645!5m2!1str!2str" width="575" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>

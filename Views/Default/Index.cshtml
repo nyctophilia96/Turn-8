@@ -1,0 +1,108 @@
+﻿@using Turn8.Models.Classes
+@model List<Blog>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<body>
+    <div class="header-banner">
+        <div class="wrap">
+            <div class="banner">
+                <div class="indent">
+                    <div class="banner-left">
+                        <div class="con-text">
+                            <div class="grid1-img">
+                                <a href="https://www.flaticon.com/free-icons/formula-1" title="formula 1 car" target="_blank">
+                                    <img src="~/icons/formula.png" alt="Formula 1 Icon" style="width: 65px; height: 65px;" />
+                                </a>
+                            </div>
+                            <div class="grid1-desc">
+                                <a href="/default/index"><p>Home</p></a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="con-text">
+                            <div class="grid1-img">
+                                <a href="https://www.flaticon.com/free-icons/race-track" title="race track" target="_blank">
+                                    <img src="~/icons/race-track.png" alt="Race Track Icon" style="width: 65px; height: 65px;" />
+                                </a>
+                            </div>
+                            <div class="grid1-desc">
+                                <a href="/blog/index"><p>Tracks</p></a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="con-text">
+                            <div class="grid1-img">
+                                <a href="https://www.flaticon.com/free-icons/number-1" title="number 1" target="_blank">
+                                    <img src="~/icons/foam-hand.png" alt="Number 1 Icon" style="width: 65px; height: 65px;" />
+                                </a>
+                            </div>
+                            <div class="grid1-desc">
+                                <a href="/about/index"><p>About</p></a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="con-text">
+                            <div class="grid1-img">
+                                <a href="https://www.flaticon.com/free-icons/driver" title="driver" target="_blank">
+                                    <img src="~/icons/formula-1.png" alt="Driver Icon" style="width: 65px; height: 65px;" />
+                                </a>
+                            </div>
+                            <div class="grid1-desc">
+                                <a href="/contact/index"><p>Contact</p></a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="header_bottom_right_images">
+
+                        <div class="slider">
+                            <ul class="rslides" id="slider1">
+                                @foreach (var x in Model)
+                                {
+                                    <li>
+                                        <a href="/blog/blogdetail/@x.Id"><img src="@x.BlogImage" alt="" style=" width: 670px; height: 350px;"></a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class"content">
+        <div class="wrap">
+            <div class="wrapper">
+                <div class="con-top">
+                    <h2>Welcome to Turn8!</h2>
+                    <p>
+                        Explore everything you need to know about the Formula 1 2024 season circuits right here. On our site, you can dive into detailed insights for each track, from layout features to key race highlights. Plus, engage with other fans by sharing your thoughts directly on individual circuit pages.<br /><br />
+                        Have feedback about the site? Head over to the Contact section and send your message directly to the admin. Enjoy the season, and let’s race through the most exciting tracks together!
+                    </p>
+                </div>
+                @await Component.InvokeAsync("Partial1")
+                <div class="grids">
+                    <div class="box1">
+                        @await Component.InvokeAsync("Partial3")
+                        @await Component.InvokeAsync("Partial4")
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

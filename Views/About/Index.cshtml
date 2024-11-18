@@ -1,0 +1,18 @@
+﻿@using Turn8.Models.Classes
+@model List<About>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="content">
+	<div class="wrap">
+		<div class="about">
+			<h3>About</h3>
+			@foreach(var x in Model)
+			{
+				<p>@x.Description</p>
+				<img src=@x.ImageUrl alt="">
+			}
+		</div>
+	</div>
+</div>

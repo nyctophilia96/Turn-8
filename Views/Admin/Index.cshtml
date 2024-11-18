@@ -1,0 +1,30 @@
+﻿@using Turn8.Models.Classes
+@model List<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 style="margin-top:10px">Blog List</h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Details</th>
+    </tr>
+    @foreach(var x in Model)
+    {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.Title</td>
+            <td><a href="/admin/deleteblog/@x.Id" class="btn btn-danger">DELETE</a></td>
+            <td><a href="/admin/getblog/@x.Id" class="btn btn-warning">UPDATE</a></td>
+            <td><a href="/blog/blogdetail/@x.Id" class="btn btn-info">DETAILS</a></td>
+        </tr>
+    }
+</table>
+<a href="/admin/newblog" class="btn btn-primary">New Blog</a>
+

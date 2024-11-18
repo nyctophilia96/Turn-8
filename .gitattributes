@@ -2,7 +2,10 @@
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
 * text=auto
-
+*.min.js binary
+bootstrap.css text eol=lf
+easing.js text eol=lf
+move-top.js text eol=lf
 ###############################################################################
 # Set default behavior for command prompt diff.
 #
@@ -61,3 +64,4 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+

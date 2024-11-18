@@ -1,0 +1,34 @@
+﻿@using Turn8.Models.Classes
+@model List<Comment>
+@{
+    ViewData["Title"] = "CommentList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 style="margin-top:10px">Comment List</h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Mail Adress</th>
+        <th>Comment</th>
+        <th>Blog</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.Name</td>
+            <td>@x.Mail</td>
+            <td>@x._Comment</td>
+            <td>@x.Blog.Title</td>
+            <td><a href="/admin/deletecomment/@x.Id" class="btn btn-danger">DELETE</a></td>
+            <td><a href="/admin/getcomment/@x.Id" class="btn btn-warning">UPDATE</a></td>
+        </tr>
+    }
+</table>
+
+

@@ -27,4 +27,3 @@ appsettings.Development.json
 # OS-specific files
 .DS_Store
 Thumbs.db
-/wwwroot/web/js/jquery.min.js

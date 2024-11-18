@@ -1,0 +1,113 @@
+﻿@model Turn8.Models.Classes.BlogComments
+@{
+    ViewData["Title"] = "BlogDetail";
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Personal Blog a Blogging Category Flat Bootstarp  Responsive Website Template | Single :: w3layouts</title>
+    <link href="~/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/web2/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!----webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+    <!----//webfonts---->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--end slider -->
+</head>
+<body>
+    <!---header---->
+    <div class="header">
+    </div>
+    <!--/header-->
+    <div class="single">
+        <div class="container">
+            <div class="col-md-8 single-main">
+                <div class="single-grid">
+                    @foreach (var x in Model.Value1)
+                    {
+                        <h2 style="font-family: Helvetica; color:#a2365a; text-align: center;">
+                            @x.Title
+                        </h2>
+                        <img src="@x.BlogImage" alt="" style="margin-bottom:20px" />
+                        <h3 style="font-family: Helvetica; color:#a2365a; margin-bottom:10px;">Circuit Information</h3>
+                        <ul>
+                            <li><strong>First Grand Prix:</strong> @x.FirstGrandPrix </li>
+                            <li><strong>Number of Laps:</strong> @x.NumberOfLaps </li>
+                            <li><strong>Circuit Length:</strong> @x.CircuitLength km </li>
+                            <li><strong>Race Distance:</strong> @x.RaceDistance km </li>
+                            <li><strong>Lap Record:</strong> @x.LapRecord </li>
+                        </ul>
+                        @foreach (var paragraph in x.Description.Split(new[] { "\\n" }, StringSplitOptions.RemoveEmptyEntries))
+                        {
+                                <p>@paragraph</p>
+                        }
+                    }
+                </div>
+                @foreach (var y in Model.Value2)
+                {
+                    <ul class="comment-list">
+                        <li>
+                            <a href="https://www.flaticon.com/free-icons/driver" title="driver" target="_blank">
+                                <img src="~/icons/formula-1.png" class="img-responsive" alt="Driver Icon" style="width: 80px; height: 80px;">
+                            </a>
+                            <div class="desc">
+                                <p><strong>@y.Name:</strong> @y._Comment</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    </ul>
+                }
+
+                <div class="content-form">
+                    <h3>Leave a comment</h3>
+
+                    <form method="post" action="/Blog/BlogDetail">
+                        <input type="hidden" name="BlogId" value="@ViewBag.Id" required />
+                        <input type="text" name="Name" placeholder="Name" required />
+                        <input type="text" name="Mail" placeholder="Email" required />
+                        <textarea name="_Comment" placeholder="Message" required></textarea>
+                        <input type="submit" value="SEND" />
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 side-content" style="margin-top:100px;">
+                <div class="recent">
+                    <h3>RECENT POSTS</h3>
+                    <ul>
+                        @foreach (var y in Model.Value3)
+                        {
+                            <li><a href="/blog/blogdetail/@y.Id">@y.Title</a></li>
+                        }
+                    </ul>
+                </div>
+                <div class="comments">
+                    <h3>RECENT COMMENTS</h3>
+                    <ul>
+                        @foreach (var z in Model.Value4)
+                        {
+                            <li><strong>@z.Name</strong> on <a href="/blog/blogdetail/@z.Blog.Id">@z.Blog.Title</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</body>
+</html>

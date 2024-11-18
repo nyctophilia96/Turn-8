@@ -1,0 +1,30 @@
+﻿@using Turn8.Models.Classes
+@model List<Contact>
+@{
+    ViewData["Title"] = "ContactList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 style="margin-top:10px">Feedback List</h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Mail Adress</th>
+        <th>Phone</th>
+        <th>Message</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.Name</td>
+            <td>@x.Mail</td>
+            <td>@x.Phone</td>
+            <td>@x.Message</td>
+            <td><a href="/admin/deletecontact/@x.Id" class="btn btn-danger">DELETE</a></td>
+        </tr>
+    }
+</table>
